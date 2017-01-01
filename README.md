@@ -12,10 +12,10 @@ You must change your user information from defaults site.
 
 ## Example 
 
----
-- name: Rename Computer and Join Domain
-  hosts: all
-  roles:
-    - win_domain
+> ---
+> - name: Rename Computer and Join Domain
+>  hosts: all
+>  roles:
+>    - win_domain
 
 	
