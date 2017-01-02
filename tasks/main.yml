@@ -7,7 +7,7 @@
       local_action: wait_for host="{{ inventory_hostname }}"  port=5985 state=started delay=30 timeout=300
 
     - name: win_domain | Join Domain
-      script: /etc/ansible/scripts/domain.ps1
+      script: scripts/domain.ps1
       register: out
 
     - name: win_domain | Wait 5985 WinRM Port After Restart Computer
