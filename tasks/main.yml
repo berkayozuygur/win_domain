@@ -2,7 +2,7 @@
     - name: win_domain | Rename Computer
       raw: Rename-Computer -NewName "{{ computername }}" -restart
       
-    - name: win_domain | Wait 5985 WinRM Port After Restart Computer
+    - name: win_domain | Wait 5985 WinRM Port After Restart Server
       local_action: wait_for host="{{ inventory_hostname }}"  port=5985 state=started delay=30 timeout=300
 
     - name: win_domain | Copy Domain Script
@@ -18,8 +18,10 @@
         path: C:\domain.ps1
         state: absent
     
-    - name: win_domain | Reboot server for take efect
+    - name: win_domain | Restart Server For Take Efect
       win_reboot:
+        shutdown_timeout_sec: 3600
+        reboot_timeout_sec: 3600
       
     - name: win_domain | Wait 5985 WinRM Port After Reboot Computer
       local_action: wait_for host="{{ inventory_hostname }}"  port=5985 state=started delay=30 timeout=300
