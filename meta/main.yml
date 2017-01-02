@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: "berkayozuygur"
+  author: "Berkay Ozuygur"
   description: Ansible playbook for rename Windows hosts and join domain
   license: GPLv2
 
