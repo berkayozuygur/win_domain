@@ -3,14 +3,15 @@ galaxy_info:
   author: "Berkay Ozuygur"
   description: Ansible playbook for rename Windows hosts and join domain
   license: GPLv2
-
   min_ansible_version: 1.2
-  - name: Windows
-    versions:
-    - 2012R2
-categories:
+  platforms:
+   - name: Windows
+     versions:
+      - 2012R2
+  categories:
    - windows
    - system
-galaxy_tags:
+  galaxy_tags:
    - windows
    - system
+dependencies: []
