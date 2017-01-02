@@ -1,14 +1,25 @@
 ---
     - name: win_domain | Rename Computer
       raw: Rename-Computer -NewName "{{ host }}" -restart
-      register: out
-
+      
     - name: win_domain | Wait 5985 WinRM Port After Restart Computer
       local_action: wait_for host="{{ inventory_hostname }}"  port=5985 state=started delay=30 timeout=300
 
-    - name: win_domain | Join Domain
-      script: scripts/domain.ps1
-      register: out
+    - name: win_domain | Copy Domain Script
+      template:
+        src: 'scripts/domain.ps1.j2'
+        dest: 'c:\domain.ps1'
 
-    - name: win_domain | Wait 5985 WinRM Port After Restart Computer
+    - name: win_domain | Run Domain Script
+      raw: c:\domain.ps1
+      
+    - name: win_domain | Delete Script From Server
+      win_file:
+        path: C:\domain.ps1
+        state: absent
+    
+    - name: win_domain | Reboot server for take efect
+      win_reboot:
+      
+    - name: win_domain | Wait 5985 WinRM Port After Reboot Computer
       local_action: wait_for host="{{ inventory_hostname }}"  port=5985 state=started delay=30 timeout=300
