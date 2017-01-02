@@ -1,5 +1,2 @@
 ---
-    host: yourhostname
-    domain: yourdomain.com
-    user_name: YOURDOMAIN\yourusername
-    pass: Your_password_here
+# defaults file for win_domain/
