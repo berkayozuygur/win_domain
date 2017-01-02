@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: berkayozuygur
   description: Ansible playbook for rename Windows hosts and join domain
