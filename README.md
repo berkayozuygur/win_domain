@@ -16,10 +16,10 @@ You must change your user information from defaults site.
 
 Example Playbook
 ----------------
-'''
+```
 ---
 - name: Rename Computer and Join Domain
   hosts: all
   roles:
     - win_domain
-'''
+```
